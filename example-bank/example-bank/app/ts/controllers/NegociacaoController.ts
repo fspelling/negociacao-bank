@@ -1,15 +1,15 @@
 class NegociacaoController {
-    private _dataInput: HTMLInputElement;
-    private _quantidadeInput: HTMLInputElement;
-    private _valorInput: HTMLInputElement;
+    private _dataInput: JQuery;
+    private _quantidadeInput: JQuery;
+    private _valorInput: JQuery;
     private _negociacoes = new Negociacoes();
-    private _negociacoesView = new NegociacoesView(document.querySelector('#negociacoesView'));
-    private _mensagemView = new MensagemView(document.querySelector('#mensagemView'));
+    private _negociacoesView = new NegociacoesView($('#negociacoesView'));
+    private _mensagemView = new MensagemView($('#mensagemView'));
 
     constructor() {
-        this._dataInput = <HTMLInputElement>document.querySelector('#data');
-        this._quantidadeInput = <HTMLInputElement>document.querySelector('#quantidade');
-        this._valorInput = <HTMLInputElement>document.querySelector('#valor');
+        this._dataInput = $('#data');
+        this._quantidadeInput = $('#quantidade');
+        this._valorInput = $('#valor');
 
         this._negociacoesView.update(this._negociacoes.paraArray());
     }

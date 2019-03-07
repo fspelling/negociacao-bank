@@ -1,7 +1,6 @@
-class NegociacoesView {
-    constructor(private _elemento: Element) { }
+class NegociacoesView extends View {
 
-    template(): string {
+    template(model: Negociacao[]): string {
         return `
         <table class="table table-hover table-bordered">
         <thead>
@@ -14,6 +13,16 @@ class NegociacoesView {
         </thead>
         
         <tbody>
+        ${model.map(negociacao => {
+            return `
+            <tr>
+                <td>${negociacao.data.getDate()}/${negociacao.data.getMonth() + 1}/${negociacao.data.getFullYear()}</td>
+                <td>${negociacao.quantidade}</td>
+                <td>${negociacao.valor}</td>
+                <td>${negociacao.volume}</td>
+            </tr>
+            `;
+        }).join('')}
         </tbody>
         
         <tfoot>
@@ -22,7 +31,7 @@ class NegociacoesView {
         `;
     }
 
-    update(): void {
-        this._elemento.innerHTML = this.template();
+    update(model: Negociacao[]): void {
+        this._elemento.innerHTML = this.template(model);
     }
 }

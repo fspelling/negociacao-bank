@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Negociacoes } from '../models/Negociacoes';
 import { Negociacao } from '../models/Negociacao';
 import { NegociacoesView } from '../views/NegociacoesView';
@@ -17,6 +18,22 @@ export class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
         this._negociacoesView.update(this._negociacoes);
+=======
+class NegociacaoController {
+    private _dataInput: JQuery;
+    private _quantidadeInput: JQuery;
+    private _valorInput: JQuery;
+    private _negociacoes = new Negociacoes();
+    private _negociacoesView = new NegociacoesView($('#negociacoesView'));
+    private _mensagemView = new MensagemView($('#mensagemView'));
+
+    constructor() {
+        this._dataInput = $('#data');
+        this._quantidadeInput = $('#quantidade');
+        this._valorInput = $('#valor');
+
+        this._negociacoesView.update(this._negociacoes.paraArray());
+>>>>>>> 984d7b80845baeb562c342b7d9cf813ef90af538
     }
 
     adiciona(event: Event) {

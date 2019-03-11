@@ -4,4 +4,18 @@ export class Negociacao {
     get volume() {
         return this.quantidade * this.valor;
     }
+
+    ehDiaUtil(): boolean {
+        return this.data.getDay() != DiaSemana.Sabado && this.data.getDay() != DiaSemana.Domingo;
+    }
+}
+
+enum DiaSemana {
+    Domingo,
+    Segunda,
+    Terca,
+    Quarta,
+    Quinta,
+    Sexta,
+    Sabado
 }

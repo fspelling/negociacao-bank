@@ -1,4 +1,6 @@
-export class Negociacao {
+import { Imprime } from "./Imprime";
+
+export class Negociacao implements Imprime {
     constructor(readonly data: Date, readonly quantidade: number, readonly valor: number) {}
 
     get volume() {
@@ -7,6 +9,11 @@ export class Negociacao {
 
     ehDiaUtil(): boolean {
         return this.data.getDay() != DiaSemana.Sabado && this.data.getDay() != DiaSemana.Domingo;
+    }
+
+    imprimir(): void {
+        console.log('-- imprimir --');
+        console.log(`Data: ${this.data} Quantidade: ${this.quantidade}, Valor: ${this.valor}, Volume: ${this.volume}`);
     }
 }
 

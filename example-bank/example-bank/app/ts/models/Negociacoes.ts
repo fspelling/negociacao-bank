@@ -1,7 +1,7 @@
 import { Negociacao } from './Negociacao';
-import { Imprime } from './Imprime';
+import { MeuObjeto } from './index';
 
-export class Negociacoes implements Imprime {
+export class Negociacoes implements MeuObjeto<Negociacoes> {
     private _negociacoes: Negociacao[] = [];
 
     adiciona(negociacao: Negociacao): void {
@@ -10,12 +10,15 @@ export class Negociacoes implements Imprime {
     }
 
     paraArray(): Negociacao[] {
-
         return ([] as Negociacao[]).concat(this._negociacoes);
     }
 
     imprimir(): void {
         console.log('-- imprimir --');
         console.log(JSON.stringify(this._negociacoes));
+    }
+
+    ehIgual(obj: Negociacoes): boolean {
+        return obj.paraArray() == this.paraArray();
     }
 }
